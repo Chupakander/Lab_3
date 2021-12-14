@@ -48,9 +48,6 @@ public class GornerTableModel extends AbstractTableModel {
 // Вспомнить 1-ый курс и реализовать
 // ...
 
-            Курс «Прикладное программирование». Лабораторная работа No3
-© Стрикелев Д.А. 34
-
             return result;
         }
     }
