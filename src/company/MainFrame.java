@@ -27,8 +27,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-Курс «Прикладное программирование». Лабораторная работа No3
-        © Стрикелев Д.А. 36
 import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
@@ -82,17 +80,11 @@ public class MainFrame extends JFrame {
         menuBar.add(tableMenu);
 // Создать новое "действие" по сохранению в текстовый файл
 
-        Курс «Прикладное программирование». Лабораторная работа No3
-© Стрикелев Д.А. 37
-        Action saveToTextAction = new AbstractAction("Сохранить в
-
-                текстовый файл") {
+        Action saveToTextAction = new AbstractAction("Сохранить в текстовый файл") {
 
         public void actionPerformed(ActionEvent event) {
             if (fileChooser==null) {
-// Если экземпляр диалогового окна "Открыть
-
-                файл" ещѐ не создан,
+// Если экземпляр диалогового окна "Открыть файл" ещѐ не создан,
 
 // то создать его
                 fileChooser = new JFileChooser();
@@ -100,13 +92,10 @@ public class MainFrame extends JFrame {
                 fileChooser.setCurrentDirectory(new File("."));
             }
 // Показать диалоговое окно
-            if (fileChooser.showSaveDialog(MainFrame.this) ==
-
-                    JFileChooser.APPROVE_OPTION)
+            if (fileChooser.showSaveDialog(MainFrame.this) == JFileChooser.APPROVE_OPTION);
 
 // Если результат его показа успешный,
-// сохранить данные в текстовый файл
-                saveToTextFile(fileChooser.getSelectedFile());
+// сохранить данные в текстовый файл saveToTextFile(fileChooser.getSelectedFile());
 
         }
     };
@@ -115,9 +104,7 @@ public class MainFrame extends JFrame {
 // По умолчанию пункт меню является недоступным (данных ещѐ нет)
 saveToTextMenuItem.setEnabled(false);
     // Создать новое "действие" по сохранению в текстовый файл
-    Action saveToGraphicsAction = new AbstractAction("Сохранить данные
-
-            для построения графика") {
+    Action saveToGraphicsAction = new AbstractAction("Сохранить данные для построения графика") {
 
     public void actionPerformed(ActionEvent event) {
         if (fileChooser==null) {
@@ -142,12 +129,9 @@ saveToTextMenuItem.setEnabled(false);
 };
 // Добавить соответствующий пункт подменю в меню "Файл"
 saveToGraphicsMenuItem = fileMenu.add(saveToGraphicsAction);
-// По умолчанию пункт меню является недоступным(данных ещѐ нет)
-        saveToGraphicsMenuItem.setEnabled(false);
+// По умолчанию пункт меню является недоступным(данных ещѐ нет) saveToGraphicsMenuItem.setEnabled(false);
 // Создать новое действие по поиску значений многочлена
-        Action searchValueAction = new AbstractAction("Найти значение
-
-        многочлена") {
+        Action searchValueAction = new AbstractAction("Найти значение многочлена") {
 
 public void actionPerformed(ActionEvent event) {
 // Запросить пользователя ввести искомую строку
@@ -163,8 +147,6 @@ public void actionPerformed(ActionEvent event) {
         }
         };
 
-        Курс «Прикладное программирование». Лабораторная работа No3
-        © Стрикелев Д.А. 38
 
 // Добавить действие в меню "Таблица"
         searchValueMenuItem = tableMenu.add(searchValueAction);
@@ -229,8 +211,6 @@ public void actionPerformed(ActionEvent event) {
 // минимальному, чтобы при компоновке область совсем не сдавили
         hboxRange.setPreferredSize(new Dimension(
 
-        Курс «Прикладное программирование». Лабораторная работа No3
-        © Стрикелев Д.А. 39
         new Double(hboxRange.getMaximumSize().getWidth()).intValue(),
         new Double(hboxRange.getMinimumSize().getHeight()).intValue()*2));
 // Установить область в верхнюю (северную) часть компоновки
@@ -249,9 +229,7 @@ public void actionPerformed(ActionEvent ev) {
         Double step =
         Double.parseDouble(textFieldStep.getText());
 
-// На основе считанных данных создать новый
-
-        экземпляр модели таблицы
+// На основе считанных данных создать новый экземпляр модели таблицы
 
         data = new GornerTableModel(from, to, step,
 
@@ -259,27 +237,17 @@ public void actionPerformed(ActionEvent ev) {
 
 // Создать новый экземпляр таблицы
         JTable table = new JTable(data);
-// Установить в качестве визуализатора ячеек для
+// Установить в качестве визуализатора ячеек для класса Double разработанный визуализатор
 
-        класса Double разработанный визуализатор
+        table.setDefaultRenderer(Double.class, renderer);
 
-        table.setDefaultRenderer(Double.class,
 
-        renderer);
-
-// Установить размер строки таблицы в 30
-
-        пикселов
 
         table.setRowHeight(30);
-// Удалить все вложенные элементы из контейнера
-
-        hBoxResult
+// Удалить все вложенные элементы из контейнера hBoxResult
 
         hBoxResult.removeAll();
-// Добавить в hBoxResult таблицу, "обѐрнутую" в
-
-        панель с полосами прокрутки
+// Добавить в hBoxResult таблицу, "обѐрнутую" в панель с полосами прокрутки
 
         hBoxResult.add(new JScrollPane(table));
 // Обновить область содержания главного окна
@@ -289,9 +257,7 @@ public void actionPerformed(ActionEvent ev) {
         saveToGraphicsMenuItem.setEnabled(true);
         searchValueMenuItem.setEnabled(true);
         } catch (NumberFormatException ex) {
-// В случае ошибки преобразования чисел показать
-
-        сообщение об ошибке
+// В случае ошибки преобразования чисел показать сообщение об ошибке
 
         JOptionPane.showMessageDialog(MainFrame.this,
         "Ошибка в формате записи числа с плавающей точкой", "Ошибочный формат числа",
@@ -308,12 +274,9 @@ public void actionPerformed(ActionEvent ev) {
         textFieldFrom.setText("0.0");
         textFieldTo.setText("1.0");
         textFieldStep.setText("0.1");
-// Удалить все вложенные элементы контейнера
+// Удалить все вложенные элементы контейнера     hBoxResult
 
-        hBoxResult
 
-        Курс «Прикладное программирование». Лабораторная работа No3
-        © Стрикелев Д.А. 40
 
         hBoxResult.removeAll();
 // Добавить в контейнер пустую панель
@@ -334,41 +297,31 @@ public void actionPerformed(ActionEvent ev) {
         hboxButtons.add(Box.createHorizontalStrut(30));
         hboxButtons.add(buttonReset);
         hboxButtons.add(Box.createHorizontalGlue());
-// Установить предпочтительный размер области равным удвоенному
-
-        минимальному, чтобы при
+// Установить предпочтительный размер области равным удвоенному минимальному, чтобы при
 
 // компоновке окна область совсем не сдавили
         hboxButtons.setPreferredSize(new Dimension(new
         Double(hboxButtons.getMaximumSize().getWidth()).intValue(), new
         Double(hboxButtons.getMinimumSize().getHeight()).intValue()*2));
-// Разместить контейнер с кнопками в нижней (южной) области
-
-        граничной компоновки
+// Разместить контейнер с кнопками в нижней (южной) области граничной компоновки
 
         getContentPane().add(hboxButtons, BorderLayout.SOUTH);
 // Область для вывода результата пока что пустая
         hBoxResult = Box.createHorizontalBox();
         hBoxResult.add(new JPanel());
-// Установить контейнер hBoxResult в главной (центральной) области
-
-        граничной компоновки
+// Установить контейнер hBoxResult в главной (центральной) области граничной компоновки
 
         getContentPane().add(hBoxResult, BorderLayout.CENTER);
         }
 protected void saveToGraphicsFile(File selectedFile) {
         try {
-// Создать новый байтовый поток вывода, направленный в
-
-        указанный файл
+// Создать новый байтовый поток вывода, направленный в указанный файл
 
         DataOutputStream out = new DataOutputStream(new
 
         FileOutputStream(selectedFile));
 
-// Записать в поток вывода попарно значение X в точке,
-
-        значение многочлена в точке
+// Записать в поток вывода попарно значение X в точке, значение многочлена в точке
 
         for (int i = 0; i<data.getRowCount(); i++) {
         out.writeDouble((Double)data.getValueAt(i,0));
@@ -377,27 +330,19 @@ protected void saveToGraphicsFile(File selectedFile) {
 // Закрыть поток вывода
         out.close();
         } catch (Exception e) {
-// Исключительную ситуацию "ФайлНеНайден" в данном случае
-
-        можно не обрабатывать,
+// Исключительную ситуацию "ФайлНеНайден" в данном случае можно не обрабатывать,
 
 // так как мы файл создаѐм, а не открываем для чтения
         }
         }
 protected void saveToTextFile(File selectedFile) {
         try {
-// Создать новый символьный поток вывода, направленный в
-
-        указанный файл
+// Создать новый символьный поток вывода, направленный в указанный файл
 
         PrintStream out = new PrintStream(selectedFile);
 // Записать в поток вывода заголовочные сведения
 
-        Курс «Прикладное программирование». Лабораторная работа No3
-        © Стрикелев Д.А. 41
-        out.println("Результаты табулирования многочлена по схеме
-
-        Горнера");
+        out.println("Результаты табулирования многочлена по схеме Горнера");
 
         out.print("Многочлен: ");
         for (int i=0; i<coefficients.length; i++) {
@@ -433,15 +378,11 @@ public static void main(String[] args) {
 // Если не задано ни одного аргумента командной строки -
 // Продолжать вычисления невозможно, коэффиценты неизвестны
         if (args.length==0) {
-        System.out.println("Невозможно табулировать многочлен, для
-
-        которого не задано ни одного коэффициента!");
+        System.out.println("Невозможно табулировать многочлен, для которого не задано ни одного коэффициента!");
 
         System.exit(-1);
         }
-// Зарезервировать места в массиве коэффициентов столько, сколько
-
-        аргументов командной строки
+// Зарезервировать места в массиве коэффициентов столько, сколько аргументов командной строки
 
         Double[] coefficients = new Double[args.length];
         int i = 0;
@@ -452,9 +393,7 @@ public static void main(String[] args) {
         }
         }
         catch (NumberFormatException ex) {
-// Если преобразование невозможно - сообщить об ошибке и
-
-        завершиться
+// Если преобразование невозможно - сообщить об ошибке и завершиться
 
         System.out.println("Ошибка преобразования строки '" +
 
