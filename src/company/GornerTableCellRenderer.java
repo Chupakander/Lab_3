@@ -37,8 +37,6 @@ public class GornerTableCellRenderer implements TableCellRenderer {
 
         dottedDouble.setDecimalSeparator('.');
 
-        Курс «Прикладное программирование». Лабораторная работа No3
-© Стрикелев Д.А. 35
 
         formatter.setDecimalFormatSymbols(dottedDouble);
 // Разместить надпись внутри панели
